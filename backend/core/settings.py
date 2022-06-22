@@ -20,7 +20,7 @@ env = environ.Env()
 
 environ.Env.read_env()
 
-DEBUG=env('DEBUG')
+DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,11 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps',
+    'blog',
     'core',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -69,21 +69,21 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000'
-    'http://127.0.0.1:8000'
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
 
-    'http://localhost:8080'
-    'http://127.0.0.1:8080'
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
     
-    'http://localhost:3000'
-    'http://127.0.0.1:3000'
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
 )
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'contenttype',
 ]
 
-ROOT_URLCONF = 'Misitio.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -92,7 +92,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.c ontext_processors.debug',
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -101,7 +101,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Misitio.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -168,7 +168,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.joi(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
